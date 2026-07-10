@@ -3,14 +3,13 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=20"
+    "node": ">=22.9"
   },
   "scripts": {
-    "check": "tsx src/main.ts",
+    "check": "node --env-file-if-exists=.env --import tsx src/main.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.110.0",
     "fast-xml-parser": "^5.9.3",
     "yaml": "^2.9.0"
   },

@@ -28,7 +28,7 @@ jobs:
       - name: Check feeds and notify
         run: npm run check
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_AI_NEWS: ${{ secrets.SLACK_WEBHOOK_AI_NEWS }}
 

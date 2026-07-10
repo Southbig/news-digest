@@ -1,7 +1,6 @@
-import Anthropic from "@anthropic-ai/sdk";
 import type { FeedItem, SourceConfig } from "./types.js";
 
-const MODEL = process.env.SUMMARY_MODEL ?? "claude-opus-4-8";
+const MODEL = process.env.SUMMARY_MODEL ?? "gemini-2.5-flash";
 const MAX_CONTENT_CHARS = 20_000;
 
 const SYSTEM_PROMPT = `너는 개발자를 위한 기술 소식 요약 봇이다. 릴리스 노트나 기술 뉴스 원문을 받아 Slack 메시지로 보낼 한국어 요약을 작성한다.
@@ -34,29 +33,54 @@ export async function summarize(
   source: SourceConfig,
   item: FeedItem,
 ): Promise<string> {
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.warn(`[${source.name}] ANTHROPIC_API_KEY가 없어 원문 발췌로 대체합니다`);
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    console.warn(`[${source.name}] GEMINI_API_KEY가 없어 원문 발췌로 대체합니다`);
     return fallbackSummary(item);
   }
 
   const body = stripHtml(item.content).slice(0, MAX_CONTENT_CHARS);
   try {
-    const client = new Anthropic();
-    const response = await client.messages.create({
-      model: MODEL,
-      max_tokens: 16000,
-      thinking: { type: "adaptive" },
-      output_config: { effort: "low" },
-      system: SYSTEM_PROMPT,
-      messages: [
-        {
-          role: "user",
-          content: `소스: ${source.name}\n제목: ${item.title}\n\n원문:\n${body || "(본문 없음)"}`,
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-goog-api-key": apiKey,
         },
-      ],
-    });
-    const textBlock = response.content.find((b) => b.type === "text");
-    return textBlock?.text.trim() || fallbackSummary(item);
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+          contents: [
+            {
+              role: "user",
+              parts: [
+                {
+                  text: `소스: ${source.name}\n제목: ${item.title}\n\n원문:\n${body || "(본문 없음)"}`,
+                },
+              ],
+            },
+          ],
+          generationConfig: {
+            maxOutputTokens: 4096,
+            // 요약엔 딥한 추론이 필요 없으므로 thinking을 꺼서 무료 한도를 아낀다
+            thinkingConfig: { thinkingBudget: 0 },
+          },
+        }),
+      },
+    );
+    if (!res.ok) {
+      throw new Error(`Gemini API 오류 (HTTP ${res.status}): ${await res.text()}`);
+    }
+
+    const data = (await res.json()) as {
+      candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
+    };
+    const text = (data.candidates?.[0]?.content?.parts ?? [])
+      .map((p) => p.text ?? "")
+      .join("")
+      .trim();
+    return text || fallbackSummary(item);
   } catch (error) {
     console.warn(`[${source.name}] 요약 실패, 원문 발췌로 대체합니다:`, error);
     return fallbackSummary(item);
