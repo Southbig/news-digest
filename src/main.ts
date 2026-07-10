@@ -31,7 +31,7 @@ async function main() {
       const idx = items.findIndex((item) => item.id === lastSeen);
       const newItems = (idx === -1 ? items : items.slice(0, idx)).slice(
         0,
-        MAX_NEW_PER_SOURCE,
+        source.maxPerRun ?? MAX_NEW_PER_SOURCE,
       );
 
       if (newItems.length === 0) {

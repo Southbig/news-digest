@@ -1,0 +1,38 @@
+# 주식 뉴스 — Google News 검색 RSS 기반
+#
+# channel: stocks → SLACK_WEBHOOK_STOCKS 시크릿의 웹훅(#stock-news 채널)으로 전송.
+# maxPerRun: 뉴스는 기사가 잦아서 한 번 실행당 알림 수를 제한 (기본 3).
+# 기사 제목 끝에 언론사명이 붙어 나오므로 출처는 메시지에서 바로 확인 가능.
+
+sources:
+  # ── 미국 주식 ────────────────────────────────────
+  - name: 엔비디아 (NVDA)
+    type: rss
+    url: https://news.google.com/rss/search?q="엔비디아" 주가&hl=ko&gl=KR&ceid=KR:ko
+    channel: stocks
+    maxPerRun: 2
+
+  - name: 알파벳 (GOOGL)
+    type: rss
+    url: https://news.google.com/rss/search?q="알파벳" OR "구글" 주가&hl=ko&gl=KR&ceid=KR:ko
+    channel: stocks
+    maxPerRun: 2
+
+  - name: 유나이티드헬스 (UNH)
+    type: rss
+    url: https://news.google.com/rss/search?q="유나이티드헬스" 주가&hl=ko&gl=KR&ceid=KR:ko
+    channel: stocks
+    maxPerRun: 2
+
+  # ── 한국 주식 ────────────────────────────────────
+  - name: SK하이닉스 (000660)
+    type: rss
+    url: https://news.google.com/rss/search?q="SK하이닉스" 주가&hl=ko&gl=KR&ceid=KR:ko
+    channel: stocks
+    maxPerRun: 2
+
+  - name: KB금융 (105560)
+    type: rss
+    url: https://news.google.com/rss/search?q="KB금융" 주가&hl=ko&gl=KR&ceid=KR:ko
+    channel: stocks
+    maxPerRun: 2
