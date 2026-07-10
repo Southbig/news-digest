@@ -3,7 +3,7 @@
   "React": "tag:github.com,2008:Repository/10270250/v19.2.7",
   "Next.js": "tag:github.com,2008:Repository/70107786/v16.3.0-canary.82",
   "Node.js": "tag:github.com,2008:Repository/27193779/v26.5.0",
-  "OpenAI News": "https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot",
+  "OpenAI News": "https://openai.com/index/deutsche-telekom",
   "Google DeepMind Blog": "https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/",
   "Vite": "tag:github.com,2008:Repository/257485422/v8.1.4",
   "MUI (Material UI)": "tag:github.com,2008:Repository/23083156/v9.2.0",
@@ -17,10 +17,10 @@
   "Biome": "tag:github.com,2008:Repository/671654508/@biomejs/biome@2.5.3",
   "Vitest": "tag:github.com,2008:Repository/434708679/v5.0.0-beta.6",
   "Playwright": "tag:github.com,2008:Repository/221981891/v1.61.1",
-  "Sentry JS SDK": "tag:github.com,2008:Repository/3328572/10.64.0",
+  "Sentry JS SDK": "tag:github.com,2008:Repository/3328572/10.65.0",
   "엔비디아 (NVDA)": "CBMiVEFVX3lxTE1SNXF1WEtiSXBGVGxxWlVTMmtCeUpsSGQwOVh0NUh3Y2QwQlJXZndmNXNQMll5eDBfSi1aUmg3UTlQMmhLR3VzRkdRX0ljTHBfZ3Y1ZA",
   "알파벳 (GOOGL)": "CBMiYkFVX3lxTE9aaDgweTc0M2pva2xHWUExMkdqdk5aOFEtZ1NvU09HT1U1SGotam9TWFlBV3hLYllmNk5qZnE5Ri0tZ3lJU0VjMjlaVlFSNjRycklCUHd0cDFPb185a0YzbWxR",
   "유나이티드헬스 (UNH)": "CBMid0FVX3lxTE1JbmhHUHZSYi12QVNnWjRqM0ZGLXlsMVNPZzhpWXZJVGpPMTNNOF9SQnBPWnpkVEpzUXk2cm95YjYyLTFxaktXMUJXLWUxRmRtYnJWT2FyMjYyNmhOcjhXUjdUOWFmdTlHM0Z5RFg0bmRaUmpmMWpr",
-  "SK하이닉스 (000660)": "CBMiVkFVX3lxTFBzLTgxQWJrd015cEplNjBJdUxhSjNDMUZEeEJxWkItdVVDTnZBLXpaRFk2RWRiWTFNNDZmdDd2bGQ3aFlZZllUTTBoN3BBUEZGdFRYUzRn",
-  "KB금융 (105560)": "CBMid0FVX3lxTE5nRTJJT1I5b3lPN3JKZ01ZQnRwdmh1WU9EZjJRTmNHVjlfY0VmWENnUlRiYm1HRFh5WjRwb0tfTVlLeUdudnlodTQ2YmN1aWxlUEhXcnl0aFF4V3NwLUpOUmZaaWZqNExrMHR4OEJtNXBydnpvX1dN0gF3QVVfeXFMTmdFMklPUjlveU83ckpnTVlCdHB2aHVZT0RmMlFOY0dWOV9jRWZYQ2dSVGJibUdEWHlaNHBvS19NWUt5R252eWh1NDZiY3VpbGVQSFdyeXRoUXhXc3AtSk5SZlppZmo0TGswdHg4Qm01cHJ2em9fV00"
+  "SK하이닉스 (000660)": "CBMiVkFVX3lxTFAwd09SajJReFBmdG9DWWUyLWJJbWVrSWNaYVNXclpsX2R1VGU2bDhJbWhuZFVLOExlSXdBWWxCS0NGdVJnTTNXSzdkNDRhSzNHUEJ1TDR3",
+  "KB금융 (105560)": "CBMiS0FVX3lxTE03MENKQWxqWkhreVlOdWUzRVJ1ZDMybGJHbmdhUkVFSVRmeFBHaVVYZHFZRmlFNng0X3lKdjVlV09kSHFxRjBSRURFQQ"
 }
