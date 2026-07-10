@@ -1,0 +1,39 @@
+# 구독 소스 목록 — 항목을 추가/삭제하면 다음 실행부터 반영됩니다.
+#
+# type: github-release  → repo: owner/repo  (GitHub Releases 감시)
+# type: rss             → url: 피드 주소     (블로그/뉴스의 RSS·Atom)
+# channel: (선택) Slack 웹훅 라우팅 키.
+#   예) channel: ai-news → SLACK_WEBHOOK_AI_NEWS 시크릿의 웹훅으로 전송.
+#   해당 시크릿이 없으면 SLACK_WEBHOOK_URL로 폴백됩니다.
+
+sources:
+  # ── 기술 스택 릴리스 ──────────────────────────────
+  - name: TypeScript
+    type: github-release
+    repo: microsoft/TypeScript
+
+  - name: React
+    type: github-release
+    repo: facebook/react
+
+  - name: Next.js
+    type: github-release
+    repo: vercel/next.js
+
+  - name: Node.js
+    type: github-release
+    repo: nodejs/node
+
+  # ── AI 소식 ──────────────────────────────────────
+  - name: OpenAI News
+    type: rss
+    url: https://openai.com/news/rss.xml
+    channel: ai-news
+
+  - name: Google DeepMind Blog
+    type: rss
+    url: https://deepmind.google/blog/rss.xml
+    channel: ai-news
+
+  # Anthropic 뉴스는 공식 RSS가 없어 아직 미지원.
+  # 추후 HTML 페이지 감시 방식의 fetcher를 추가하면 구독 가능.
