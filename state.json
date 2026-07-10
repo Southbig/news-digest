@@ -4,5 +4,18 @@
   "Next.js": "tag:github.com,2008:Repository/70107786/v16.3.0-canary.82",
   "Node.js": "tag:github.com,2008:Repository/27193779/v26.5.0",
   "OpenAI News": "https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot",
-  "Google DeepMind Blog": "https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/"
+  "Google DeepMind Blog": "https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/",
+  "Vite": "tag:github.com,2008:Repository/257485422/v8.1.4",
+  "MUI (Material UI)": "tag:github.com,2008:Repository/23083156/v9.2.0",
+  "MUI X": "tag:github.com,2008:Repository/260240241/v9.9.0",
+  "TanStack Query": "tag:github.com,2008:Repository/207645083/@tanstack/vue-query-devtools@6.1.36",
+  "Zustand": "tag:github.com,2008:Repository/180328715/v5.0.14",
+  "Jotai": "tag:github.com,2008:Repository/286867459/v2.20.1",
+  "React Router": "tag:github.com,2008:Repository/19872456/react-router@8.2.0",
+  "React Hook Form": "tag:github.com,2008:Repository/174038031/v7.81.0",
+  "Zod": "tag:github.com,2008:Repository/245704608/v4.4.3",
+  "Biome": "tag:github.com,2008:Repository/671654508/@biomejs/biome@2.5.3",
+  "Vitest": "tag:github.com,2008:Repository/434708679/v5.0.0-beta.6",
+  "Playwright": "tag:github.com,2008:Repository/221981891/v1.61.1",
+  "Sentry JS SDK": "tag:github.com,2008:Repository/3328572/10.64.0"
 }
