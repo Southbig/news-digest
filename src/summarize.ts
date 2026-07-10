@@ -1,6 +1,7 @@
 import type { FeedItem, SourceConfig } from "./types.js";
 
-const MODEL = process.env.SUMMARY_MODEL ?? "gemini-2.5-flash";
+// "-latest" 별칭은 항상 최신 Flash 모델을 가리킴 — 모델 단종에 영향받지 않음
+const MODEL = process.env.SUMMARY_MODEL ?? "gemini-flash-latest";
 const MAX_CONTENT_CHARS = 20_000;
 
 const SYSTEM_PROMPT = `너는 개발자를 위한 기술 소식 요약 봇이다. 릴리스 노트나 기술 뉴스 원문을 받아 Slack 메시지로 보낼 한국어 요약을 작성한다.
@@ -62,9 +63,7 @@ export async function summarize(
             },
           ],
           generationConfig: {
-            maxOutputTokens: 4096,
-            // 요약엔 딥한 추론이 필요 없으므로 thinking을 꺼서 무료 한도를 아낀다
-            thinkingConfig: { thinkingBudget: 0 },
+            maxOutputTokens: 8192,
           },
         }),
       },
