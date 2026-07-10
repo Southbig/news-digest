@@ -16,13 +16,63 @@ sources:
     type: github-release
     repo: facebook/react
 
-  - name: Next.js
-    type: github-release
-    repo: vercel/next.js
-
   - name: Node.js
     type: github-release
     repo: nodejs/node
+
+  - name: Vite
+    type: github-release
+    repo: vitejs/vite
+
+  # ── UI / 상태 관리 ───────────────────────────────
+  - name: MUI (Material UI)
+    type: github-release
+    repo: mui/material-ui
+
+  - name: MUI X
+    type: github-release
+    repo: mui/mui-x
+
+  - name: TanStack Query
+    type: github-release
+    repo: TanStack/query
+
+  - name: Zustand
+    type: github-release
+    repo: pmndrs/zustand
+
+  - name: Jotai
+    type: github-release
+    repo: pmndrs/jotai
+
+  - name: React Router
+    type: github-release
+    repo: remix-run/react-router
+
+  - name: React Hook Form
+    type: github-release
+    repo: react-hook-form/react-hook-form
+
+  - name: Zod
+    type: github-release
+    repo: colinhacks/zod
+
+  # ── 도구 / 테스트 / 모니터링 ─────────────────────
+  - name: Biome
+    type: github-release
+    repo: biomejs/biome
+
+  - name: Vitest
+    type: github-release
+    repo: vitest-dev/vitest
+
+  - name: Playwright
+    type: github-release
+    repo: microsoft/playwright
+
+  - name: Sentry JS SDK
+    type: github-release
+    repo: getsentry/sentry-javascript
 
   # ── AI 소식 ──────────────────────────────────────
   - name: OpenAI News
