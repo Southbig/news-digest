@@ -4,7 +4,7 @@
   "Next.js": "tag:github.com,2008:Repository/70107786/v16.3.0-canary.82",
   "Node.js": "tag:github.com,2008:Repository/27193779/v26.5.0",
   "OpenAI News": "https://openai.com/index/deutsche-telekom",
-  "Google DeepMind Blog": "https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/",
+  "Google DeepMind Blog": "https://deepmind.google/blog/empowering-indias-next-generation-of-innovators-with-atl-saathi/",
   "Vite": "tag:github.com,2008:Repository/257485422/v8.1.4",
   "MUI (Material UI)": "tag:github.com,2008:Repository/23083156/v9.2.0",
   "MUI X": "tag:github.com,2008:Repository/260240241/v9.9.0",
@@ -18,9 +18,9 @@
   "Vitest": "tag:github.com,2008:Repository/434708679/v5.0.0-beta.6",
   "Playwright": "tag:github.com,2008:Repository/221981891/v1.61.1",
   "Sentry JS SDK": "tag:github.com,2008:Repository/3328572/10.65.0",
-  "엔비디아 (NVDA)": "CBMihwFBVV95cUxNYXk2Zkxad2lMYXFjSTRfbjY5M3hlUm5VM1NPQW4xcE8tdEdZV3RDN09wZVgxVVkxb3FvYUdrWWxRQUtNenNJbU5PTkcyeVlUZ01nN0ZLLW9KZmtxMm1hZmdfVy1BRTV4bnVEcUM1aVB0MHRxeV9OZWdIdm1DeHhQdE04M3dlekk",
+  "엔비디아 (NVDA)": "CBMid0FVX3lxTE1hNVBvQVlJRnNPelcxanFNSGp0X1Raa004Uy0zWU9fZWFtenNEZ0xHNTdDMlVUcXd2UlQ4TDNrWE9nUFBqRzc2bjhZNVVGZlViaGZHV0ZjcGo1cE5scVdnVG5Va0lQaWJfZmx2MXN2ay1uUlFNVkxR",
   "알파벳 (GOOGL)": "CBMiYkFVX3lxTE9aaDgweTc0M2pva2xHWUExMkdqdk5aOFEtZ1NvU09HT1U1SGotam9TWFlBV3hLYllmNk5qZnE5Ri0tZ3lJU0VjMjlaVlFSNjRycklCUHd0cDFPb185a0YzbWxR",
-  "유나이티드헬스 (UNH)": "CBMicEFVX3lxTE1Xamd6QXpORUZNYTNJcHBQeDc0TVlweXlXTVBlemVQZXdobVp6dTRpUWxVNW9FaFBKZ2Jsc2wzdFJtYVFwa2xlNEo1OVZVZ1dfRXAtUHo0d2pXZEFDNXFxWXJ2dTh0bTRfYTRNNWpqU0o",
-  "SK하이닉스 (000660)": "CBMiaEFVX3lxTFBVV2ZNOUstODBJRElIaF9QbWJXSWJLMm9IcW54c0syd0h2UU5fNVp0bEJ6Mlg3TldWdWlPdUF0a1h1aVBWb2dkOUIwVjlYZVNGS0VsZXFvVzZDeWdicXp5TmpmdzNFcnRE0gFuQVVfeXFMUDg2emZTbDNHZGhCUHVfWE9FQi1lTlVhSHNCUWg1VnNCU19ySVcweU5SLWoxckxzNFo3OEp2RG9OUFdiTlp6Vjh4TDJLak9VbEVOUUl4a19JN19iTW9VejlTNHNPcGRaaV94RXJqUEE",
+  "유나이티드헬스 (UNH)": "CBMimwFBVV95cUxOakVtUXlCM0c1RTBYYXVoRXlEeFFZR2VKbk9xX3B1eFExcGo4Zm1ZN1drNXdpX0s5U2cxTnpBT2tJZWZCZWVSMjk4YXlRNTZkeENtRDlHbnBiWVhSOTNxS1ZXdEY5Yk5JOGZ4SEdyaHE4M1owVHZEMFhFTmJYQXJSSUdTUi1HVFkxUVJKSHYxaXR2WG51NHhENFpVWdIBoAFBVV95cUxNekRsQ3hHNDkwdEtfVEZWWklkU2Q0Z1dJWDdsaUU4NENaemlOWFk0cWNQUWJLX1FjZDdJM1JWNzBMQm1sZUd4LXp0MDNSVVJrZDBjZ20wVmg2dVBFVlFfcVAzdWlZdVhtNHVpem9rUFpwS0t6U0FVLVU3aTNnQWIwRDc1cFNTai1WRnIzU0dXVERqR1A2QWZDVUFGM1JGSUx1",
+  "SK하이닉스 (000660)": "CBMicEFVX3lxTE5BZ2NTYXlHTHRyUjZhYjFrWVhXblNfbE5PT1UzMWNxelFEallsMC1zQXplRldqQjNLQ29TRW1mZUcxV09EQk12WFV5a2ROVkFpdTR2cnFRSkFtTGNPem5YNWtacW9tQlVCVWItOHE3aEY",
   "KB금융 (105560)": "CBMigwFBVV95cUxQRkx1Qzd6OTk1RTZuYWR1TEttbnZGbV9aM3NFcFE5R2Z3RkR1enJPNGtUZE5xekxjdW9ib2dVWmpQa0c2T0otcEVFa3RPNVBzUFl0V1JlaVV6QnFocVBkcHpZenpLSWhweXI1YWNUYTlMTTVpVndTaDZ2OEVaeHJFcS1Vcw"
 }
