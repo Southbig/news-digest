@@ -4,7 +4,7 @@
   "Next.js": "tag:github.com,2008:Repository/70107786/v16.3.0-canary.82",
   "Node.js": "tag:github.com,2008:Repository/27193779/v26.5.0",
   "OpenAI News": "https://openai.com/index/advancing-ai-safety-through-state-and-federal-action",
-  "Google DeepMind Blog": "https://deepmind.google/blog/empowering-indias-next-generation-of-innovators-with-atl-saathi/",
+  "Google DeepMind Blog": "https://deepmind.google/blog/our-approach-to-bioresilience/",
   "Vite": "tag:github.com,2008:Repository/257485422/v8.1.5",
   "MUI (Material UI)": "tag:github.com,2008:Repository/23083156/v9.2.0",
   "MUI X": "tag:github.com,2008:Repository/260240241/v9.9.0",
@@ -17,10 +17,10 @@
   "Biome": "tag:github.com,2008:Repository/671654508/@biomejs/biome@2.5.4",
   "Vitest": "tag:github.com,2008:Repository/434708679/v5.0.0-beta.6",
   "Playwright": "tag:github.com,2008:Repository/221981891/v1.61.1",
-  "Sentry JS SDK": "tag:github.com,2008:Repository/3328572/10.65.0",
-  "엔비디아 (NVDA)": "CBMid0FVX3lxTE1hNVBvQVlJRnNPelcxanFNSGp0X1Raa004Uy0zWU9fZWFtenNEZ0xHNTdDMlVUcXd2UlQ4TDNrWE9nUFBqRzc2bjhZNVVGZlViaGZHV0ZjcGo1cE5scVdnVG5Va0lQaWJfZmx2MXN2ay1uUlFNVkxR",
+  "Sentry JS SDK": "tag:github.com,2008:Repository/3328572/10.66.0",
+  "엔비디아 (NVDA)": "CBMiZ0FVX3lxTE9PUmVRc3JLMUtVSXZHZHJ0dldlNmxqU2ZIV29oT2NLZ2U4bTZrUGRjZ29aZE9KT1dXNnVxTTg2MVpRZ3VXUzFNdnVwRUJreFNsUUtLcVlFNGxFXzEyQXZvblFERTd1R00",
   "알파벳 (GOOGL)": "CBMiYkFVX3lxTE9aaDgweTc0M2pva2xHWUExMkdqdk5aOFEtZ1NvU09HT1U1SGotam9TWFlBV3hLYllmNk5qZnE5Ri0tZ3lJU0VjMjlaVlFSNjRycklCUHd0cDFPb185a0YzbWxR",
-  "유나이티드헬스 (UNH)": "CBMid0FVX3lxTE5MX0lqTjFlMGRLZXhTRHNkWFNhZ1JpbXVnZml3MHVTeXNOV0xSZi1oVDZqRm8wMy1SdnRIR3Z5TGZGS3lMU28xN1E3Qm9GcWM2WHo3RGtja0dDcERKN3JyUDJGOGRHeWN1WWVxRm1OOXN2OFltQV9J",
+  "유나이티드헬스 (UNH)": "CBMid0FVX3lxTE1oWGR4dGh0c3JsWHR5U2VZeEhuQlBMRXNtcmN5dlVLNksxNG8wR0lXWFZ5S0c5M1Y2NENDSXYyQWd4MUxfdjQyRUNPZWNGR2I3RGtZMDB6OUt4dGhaWkVPWURTdHY3c2RoeVljZDRlbUVTZ0x0SHYw",
   "SK하이닉스 (000660)": "CBMiRkFVX3lxTE9ZQjgwVEwyRHNzZUl4WGFzVVRHdXpkMnplcDNJWUltRWl6bVpHLVhYdFZYdVozemEzNEZhZ0FLN2xNMlFoRmc",
   "KB금융 (105560)": "CBMickFVX3lxTFAtN3pYOG5ueWNHTFBlVENkenlXVWw0R3lKVGNxNUNDVHl2QThqWGxJSk9zZmNoWEpqaEpLYkxiRmxfNmFXUlJjOE9YMlczNWs2Z3JhbmtfWjItajUzT2lBOERuS2hSc3RfMjJ6VVI4X21JZw"
 }
