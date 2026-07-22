@@ -11,7 +11,7 @@
   "TanStack Query": "tag:github.com,2008:Repository/207645083/@tanstack/solid-query-persist-client@6.0.0-beta.6",
   "Zustand": "tag:github.com,2008:Repository/180328715/v5.0.14",
   "Jotai": "tag:github.com,2008:Repository/286867459/v3.0.0-alpha.0",
-  "React Router": "tag:github.com,2008:Repository/19872456/react-router@8.2.0",
+  "React Router": "tag:github.com,2008:Repository/19872456/react-router@8.3.0",
   "React Hook Form": "tag:github.com,2008:Repository/174038031/v7.82.0",
   "Zod": "tag:github.com,2008:Repository/245704608/v4.4.3",
   "Biome": "tag:github.com,2008:Repository/671654508/@biomejs/biome@2.5.5",
