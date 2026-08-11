@@ -8,7 +8,7 @@
   "Vite": "tag:github.com,2008:Repository/257485422/v8.2.1",
   "MUI (Material UI)": "tag:github.com,2008:Repository/23083156/v9.3.1",
   "MUI X": "tag:github.com,2008:Repository/260240241/v9.11.1",
-  "TanStack Query": "tag:github.com,2008:Repository/207645083/@tanstack/solid-query-persist-client@6.0.0-beta.7",
+  "TanStack Query": "tag:github.com,2008:Repository/207645083/@tanstack/solid-query-persist-client@6.0.0-beta.8",
   "Zustand": "tag:github.com,2008:Repository/180328715/v5.0.14",
   "Jotai": "tag:github.com,2008:Repository/286867459/v3.0.0-alpha.0",
   "React Router": "tag:github.com,2008:Repository/19872456/v0.0.0-experimental-320d16107",
@@ -19,8 +19,8 @@
   "Playwright": "tag:github.com,2008:Repository/221981891/v1.62.1",
   "Sentry JS SDK": "tag:github.com,2008:Repository/3328572/10.70.0",
   "엔비디아 (NVDA)": "CBMiYEFVX3lxTE9wa21DNVRBOWRQMVJFQlRWQUkyOFY3eUFQbGsyRi1lTXI2NVZOdVl2MURvcE1qOUx0QW5fbWNsU1dFZmZ0MUlGYnFBWUdudktoQ18tQUVaV0hGNjFaZVVfaNIBYEFVX3lxTE9wa21DNVRBOWRQMVJFQlRWQUkyOFY3eUFQbGsyRi1lTXI2NVZOdVl2MURvcE1qOUx0QW5fbWNsU1dFZmZ0MUlGYnFBWUdudktoQ18tQUVaV0hGNjFaZVVfaA",
-  "알파벳 (GOOGL)": "CBMicEFVX3lxTE1JTE5sbnk5NjdFQTFjOW95LWxyN3JzdjM0d3g3WEV3em5NbTBZblFhWWNxcmlCYVVXd0hwYlpRS3g5RVN1ZGNLVnd5U0ZkcUNlMWVzRmZGSXZrTGhYSEdROHFGcUVaN3l5TnRHRkVzejE",
+  "알파벳 (GOOGL)": "CBMikAFBVV95cUxPR25RMEx0enc0b0l3bWwxQVVzOFpPekpVdEs4UklvNWhVM1liaG9RSU9jMG5nSV9land3TzNEVTd1S2FhcUxqYTVaWkFhZzNvUG9SdmstNnFZUWxzWnphbUFmYUw1ekt3TWduZTgyaDVmUUhLY25OMlVWMUVBc3IzazFVYUktVmVfWS1GeEJ3NUk",
   "유나이티드헬스 (UNH)": "CBMimwFBVV95cUxQU25nTkJjMERyZllwZURTalBXcG1IejdoYm1Jc3Z5XzExTGxJYnNKZF9jdm9XVGFjMThrLWlRZHNIMDR1YTJ2N0dJMjgydXJDX3gwRVhUekRxazlRUU90YjA3UENEenVoUkFNaWE3UlJwZW1NWTFPcWhlVWhqa2JOdzQ1T0xCYXg1LVduQUEyenVhMldTRmxPeE04WQ",
-  "SK하이닉스 (000660)": "CBMiTkFVX3lxTE11b29ldjlXTE9aRTVpSF9vYWFNTXZsWFdVR181Y2M2ek8wVTR5anQ0bkpGei1yWXRUOHc4bkVXTnJURFkzdks5ZDRFT2t1dw",
+  "SK하이닉스 (000660)": "CBMiT0FVX3lxTFBfREdvMm9Cd0xXN3dSQy1jaHZKTnlQaDRLSWhEVmJRekp4SXdjdm1vb2E2M0NiTU8tYVd6aWZKQUhLWWxhRW5WRzZnYVJFa2c",
   "KB금융 (105560)": "CBMickFVX3lxTE1WRDdVZXVpck15NXN5dW4zTVFQZEotS2FFczZ2TFUwcmpXSmgySFdXSnNkWFdhVTBDU2RnREtoNjBPWFA0M1NDYlVSLWpfOVJTbGdsTTR2a0s5WEl3N2VsR085ajk3MEsxcld4MnMwX1UyQQ"
 }
