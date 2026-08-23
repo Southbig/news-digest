@@ -8,7 +8,7 @@
   "Vite": "tag:github.com,2008:Repository/257485422/v8.2.2",
   "MUI (Material UI)": "tag:github.com,2008:Repository/23083156/v9.3.1",
   "MUI X": "tag:github.com,2008:Repository/260240241/v9.12.0",
-  "TanStack Query": "tag:github.com,2008:Repository/207645083/@tanstack/vue-query-devtools@6.1.39",
+  "TanStack Query": "tag:github.com,2008:Repository/207645083/@tanstack/vue-query-devtools@6.1.40",
   "Zustand": "tag:github.com,2008:Repository/180328715/v5.0.15",
   "Jotai": "tag:github.com,2008:Repository/286867459/v3.0.0-alpha.0",
   "React Router": "tag:github.com,2008:Repository/19872456/@remix-run/router@1.23.4",
@@ -22,5 +22,5 @@
   "알파벳 (GOOGL)": "CBMicEFVX3lxTE1JTE5sbnk5NjdFQTFjOW95LWxyN3JzdjM0d3g3WEV3em5NbTBZblFhWWNxcmlCYVVXd0hwYlpRS3g5RVN1ZGNLVnd5U0ZkcUNlMWVzRmZGSXZrTGhYSEdROHFGcUVaN3l5TnRHRkVzejE",
   "유나이티드헬스 (UNH)": "CBMimwFBVV95cUxPSXBsN0tZb1FVZ3JIQ0taTmxqSGlJZm9KMjRmRnVsWXRGdWhJVUhhWTNRM1RKRWJRYzJTenhpSHd5NzhwdlhYNzY2QVViQXFkMlZQTTIwcFd0VTh2a1J1OWJiZVdaQVZJdG1uTnNWMjBvZzQ5ZWExN0xMQXFSUFdSVEhPNWIydFdpTUttcUxQNkl6YmphaGdEaXVNTdIBoAFBVV95cUxOLTlBTjBBRDBGZmF5Q3NrRmVRSDU1a016dGVOdXRYcV9KTVloRjdfMEQ1dTl5OEZuMl9qNVlYNVAwTDc2cnliOHlDN3F6eUpqZFJwVkpzeTFhQndDWnAxdGR4U3Nzd21ZUUxNQTNELUw4SUkyV1phNWF0ZlpYN1c4WldHT2FsVWM5UGFxVzFwQzBmdm1GQjU3MktfbE90REVU",
   "SK하이닉스 (000660)": "CBMiVkFVX3lxTE9LbDNnY1R3OUJmeUI3RGhBLTNQc2JQRzJmODFIYnJXa3JhTWdEZ0VYNkREazg4TThPOGVHZ19jTzNVdXdlR2lkcHUyS29KSGNBVTR2eVBB",
-  "KB금융 (105560)": "CBMibEFVX3lxTE1jVHV6RFFobmx3TkRqZGRweDdHdGN2SjYtckxPS2VzZjRJVmFoVEZGV0QyUHlZRDRZdHlLaGJray1CaTBDREdmcTA5bWRiamdHQnp6bU9XTXJfckZEWjI4Y3YtQ1lxVTFGblIyUw"
+  "KB금융 (105560)": "CBMiXEFVX3lxTE1GOHFiV1ZPZkx3NjdHZ2VVWVhqLVpQOW1wbFFmQUFLbTNTcnlvekR6YzM0N0NqUVQ5VjhmcnRfeERSal9FcTdTbU55OWwwd3dJam41VTVYT2hHTnZ5"
 }
