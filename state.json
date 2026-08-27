@@ -3,12 +3,12 @@
   "React": "tag:github.com,2008:Repository/10270250/v19.2.8",
   "Next.js": "tag:github.com,2008:Repository/70107786/v16.3.0-canary.82",
   "Node.js": "tag:github.com,2008:Repository/27193779/v26.8.1",
-  "OpenAI News": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
-  "Google DeepMind Blog": "https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe/",
+  "OpenAI News": "https://openai.com/index/expanding-our-presence-in-brazil",
+  "Google DeepMind Blog": "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/",
   "Vite": "tag:github.com,2008:Repository/257485422/create-vite@9.2.0",
   "MUI (Material UI)": "tag:github.com,2008:Repository/23083156/v9.3.1",
   "MUI X": "tag:github.com,2008:Repository/260240241/v9.12.0",
-  "TanStack Query": "tag:github.com,2008:Repository/207645083/@tanstack/vue-query-devtools@6.1.46",
+  "TanStack Query": "tag:github.com,2008:Repository/207645083/@tanstack/vue-query-devtools@6.1.47",
   "Zustand": "tag:github.com,2008:Repository/180328715/v5.0.15",
   "Jotai": "tag:github.com,2008:Repository/286867459/v3.0.0-alpha.1",
   "React Router": "tag:github.com,2008:Repository/19872456/@remix-run/router@1.23.4",
@@ -18,9 +18,9 @@
   "Vitest": "tag:github.com,2008:Repository/434708679/v4.1.11",
   "Playwright": "tag:github.com,2008:Repository/221981891/v1.62.1",
   "Sentry JS SDK": "tag:github.com,2008:Repository/3328572/10.71.0",
-  "엔비디아 (NVDA)": "CBMicEFVX3lxTE1fMU5lVE1JR3lDT3VMUDBuQXdOVXpBYWFTYW1WOFZyUWt4bUwzRm5nc1hEektHWUJVVGxpYnhURy1HX2hIQS1OejdXQXhVc3FYTTZvY2Jjb0JSM3VYenBqbUZBNHhKSTRzbktNVkF1VHY",
-  "알파벳 (GOOGL)": "CBMikgFBVV95cUxOX1p2Mi0wWjNMMUxfSXhHZkxabi1reV9JN1ZkTV9fcmZvenRHWGNkUGc2TG1QRkdpZ1M5WVZiWXdxMmlRUGFkQ0g1MTFWZkU4SWNCcnFLNTY4TWFlamVRbi1tT1BlaEh2R0dfMGlWM2VjTHByVzRSaXhEVHRubG9Oc3JObnoySmxNVkZ6Y0gtOTQwUdIBkgFBVV95cUxOX1p2Mi0wWjNMMUxfSXhHZkxabi1reV9JN1ZkTV9fcmZvenRHWGNkUGc2TG1QRkdpZ1M5WVZiWXdxMmlRUGFkQ0g1MTFWZkU4SWNCcnFLNTY4TWFlamVRbi1tT1BlaEh2R0dfMGlWM2VjTHByVzRSaXhEVHRubG9Oc3JObnoySmxNVkZ6Y0gtOTQwUQ",
+  "엔비디아 (NVDA)": "CBMiT0FVX3lxTFBCM3lSS0hBNUkxUDlWdlRkYklDWlhBcTQ2bWhDbWpzaVJTVUt2VV94dVBNSFU0SzhkWDZoZkxBTkZnUG5yZWNQcEEwRUp6RkE",
+  "알파벳 (GOOGL)": "CBMicEFVX3lxTE1PY2VKYmwzYnhkVUpVcEUzbmpFeHc5WG5kcFhZUEhwdkRWbU1uakZwbFN4bWpXc0duN1BtWDFoeWxmOHpyQm5aOTQwTVBNZjVmbTh4bENPWi1KbEdJR1MzZGJtT0hjc0dubDZNWFp0elo",
   "유나이티드헬스 (UNH)": "CBMie0FVX3lxTE1RN1ROU1Fxd0M2a0otbjMxWUhJcDVOVTB0aXNwOC1oaVpjVmtFalQ4YVJ0ZGxoUUJqTlFXU0VsMEhWWHgwbUZFSnlaVmZLaUFlX2hQbjROUHpiQzY1RThtcngzdnBab19FSFU2MUE0Si04cEdWblhxd3kzYw",
   "SK하이닉스 (000660)": "CBMibEFVX3lxTFA1TnJBeWh4UjNqV2tVb0UtaWEwbTJXYkcwY2ZlWGJYbDZDVWZod0JSUlgwLVUyWVloUkh4WFZTbVNSaS1JYl9ranFvV2NBdGhoQnBFR0JIdkZvWDBiS1BnY1ItWTRoeTdqUXdOedIBckFVX3lxTE1yT2p5S2FDajFOanc3aVBkT1JUZlQ2Vjhsb1VZc0pTamlwSEhybVUtTHhpRVFUNUU2aHk4QlF6cUh1eTJUb0lsWk9neGFNSFJfTzFjUnNuNWU1WXluQ3Bib2QwMDRVYkVGQ0M5M0FZaTlVdw",
-  "KB금융 (105560)": "CBMickFVX3lxTFB0bWF6OUhCNjJzZDhJTGlveGFEdmptdklJMFdJLXdkOUpBQjVwQW95ZGxscnJiQkFOOFZSU2JLVjlXaVRsMUswSWlNb3VVNUQwNENSMmVVelVCMzJCeV92YlJael9HMmRxdmJIaU1ZanhKUQ"
+  "KB금융 (105560)": "CBMicEFVX3lxTE5nMWFtWkhFX2t4XzE5YlkwTlRqLVlnOGNHM2Q4S3NyMWpqR1ZzX3NPRjAyZzFBbVZaRzVod3BiOWJiT0gtS2U4QnFuZ000VWxRRml1OUl5eThaZ212UkRETndzMHBpbFlBWC1sbEpxQS0"
 }
