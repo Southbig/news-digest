@@ -4,14 +4,14 @@
   "Next.js": "tag:github.com,2008:Repository/70107786/v16.3.0-canary.82",
   "Node.js": "tag:github.com,2008:Repository/27193779/v26.8.2",
   "OpenAI News": "https://openai.com/index/fyxer",
-  "Google DeepMind Blog": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+  "Google DeepMind Blog": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/",
   "Vite": "tag:github.com,2008:Repository/257485422/v8.3.0",
   "MUI (Material UI)": "tag:github.com,2008:Repository/23083156/v9.4.0",
   "MUI X": "tag:github.com,2008:Repository/260240241/v9.13.0",
   "TanStack Query": "tag:github.com,2008:Repository/207645083/@tanstack/solid-query-persist-client@6.0.0-rc.3",
   "Zustand": "tag:github.com,2008:Repository/180328715/v5.0.15",
   "Jotai": "tag:github.com,2008:Repository/286867459/v3.0.0",
-  "React Router": "tag:github.com,2008:Repository/19872456/v0.0.0-experimental-7aea711dd",
+  "React Router": "tag:github.com,2008:Repository/19872456/v0.0.0-experimental-f20bcf6de",
   "React Hook Form": "tag:github.com,2008:Repository/174038031/v7.88.0",
   "Zod": "tag:github.com,2008:Repository/245704608/v4.6.5",
   "Biome": "tag:github.com,2008:Repository/671654508/@biomejs/biome@2.5.13",
@@ -20,7 +20,7 @@
   "Sentry JS SDK": "tag:github.com,2008:Repository/3328572/11.0.0-beta.2",
   "엔비디아 (NVDA)": "CBMid0FVX3lxTE82c2hRN21vdERhaDVnYlNkakk3MnRCNW1ZSFdXNFBKYmRwSHZUOXZnYWF2TlhuSmMwUjBPMkItX3NyM3I5cEhiZzFKMGFsRVlBMS1PaE9jU0RWNFZxcy1keE5wdzRyVnBObjVNZ2l3M3RpVExOb0xR",
   "알파벳 (GOOGL)": "CBMijwJBVV95cUxPNDBJcFMzZTlWbkRzVmZPemo1aE1kUHRMbk5HRzFNajY5V3RKdkFzYk1BdkZINWJqbnl2bFRBY0hoSEhSMjRLbElmbnh6R3NBd3ZtbTF4U1JUYjI4TFRKaEFRaUtJOVpDNzZFM0NUaHBobEJCX2d1NW5iME9uUHQwT0Z4eGM0VE9UeUVWWFEtek9HSkxOMzNoT0RuOTd2WjNjVXp0Y0lIa2lVWGFTbDRqU1lEWjdvM2dLWTRtRU9ncGdOWVlSem5XTGlWblRmckQ2cTZwTEZmMXg0Q1ByQ2NKX1NwZkhQQUFmZnRmeDBUbzB6dTBFcHZ5RGRzSmtXRS1jSkZ5MDBKQWhiU01PT1lr",
-  "유나이티드헬스 (UNH)": "CBMid0FVX3lxTE90MHJlaFExdV92dGpnc3lLZVByUDBFV1U1WFJYa0dtQW8tN1RGWTRRNE5pbFlxZ2FVSmZLVHg5LVZtal9xVmN6YUNCQmZ4eTZoRWY3T2JjbUdkbWN1VHFJTkg3TWQwSmh4d0RZVU1jcFVSUTNVaXk4",
-  "SK하이닉스 (000660)": "CBMiT0FVX3lxTE1adVJPc3I2eUlBcjI3b2FZcjBaYlpSYUk5c1d6RllqdTYwa1JDaHZCTFZPZUVnZjh4SU1UT0J1a05tOFg1azU0Y0lmcUhmSzA",
-  "KB금융 (105560)": "CBMickFVX3lxTE1ZZmhGMENfOVVNcEo0Q3lsaDJLcnFJbG94NVNLNmk0T01lLTRjQTJvbWZLbmFqMGRWSFlUVFJfWTZQai1QNFdDVk1TWEx3Q1c0Vi10aFhQUnNMcU5SbzIyS25UdGlRTVhHd2l2ejM3RW8yZw"
+  "유나이티드헬스 (UNH)": "CBMimwFBVV95cUxQY1F1WUlDU1NCNUNncnJjVDNDRkRmMllhWlRvbEVnUUFEQWJkZnlIYlZuVWllMmZMWmpwYUx3bWpBdWd2eWhuZ19PVjFrMk5ubXk0ZTB4dnM3aXVudUNWejJBMC1GODRnUmZnWXZiUnZvV2RZQ012QXA2MmI3MFZFZFFBMFZVR0hHbnZuSUdYQU1wMkpUUkZ2bU9zNNIBoAFBVV95cUxNcENKQy1jMXc2b19yT1RSdHVveGdVbUhsN1N5WVFVWF9xOUo2LWljVmFfdG1jYXZpcUZwRFNxaUU1Qlltb1BoVWYtdC1DQ2dDdTZJdHdCWkp6Z1BMSk5YOGdmY0VYNlhaV25yTzJfZnNNdVYyUjFhcEpjVlFJd2Flcl9jNmZVTHZFZnE0cTk2UThKVm4xNXROUXF2MVhMdURy",
+  "SK하이닉스 (000660)": "CBMiT0FVX3lxTFBGcmM4SzdBdC16WGMtOGowLUlTUHpqVktDVUkyV1Z3LVlvREtCdWMxOXNkNGx2bW5mTm5xU1JKMXE1Zzg0M0JGMnljU2hRY3M",
+  "KB금융 (105560)": "CBMicEFVX3lxTE5Ud1NSUUhIaXVybkZEdXVOc1FTcGNOS0F0SGxHblBqS1NYM0JtTXJnTDFaOUhPMW8tTmZDNjNKUzdxdS01dWtpcFZCUkc2c1JIZk9VVnloaFJBdVY2QkQ1aVUyTmNjS0hleGZoYXAxdErSAXRBVV95cUxNRDJ0ZGtBcXBxa2dvbm1DY1ZnR0toZ0RNakN5MzlEUXBtNHBEQjY0a3VjaU1sNE0tbTUtMHdpRzNjS1RSajlqMl9hc2RnaTcxZk5ZZnJCN0NrWmFxUUdueWdfdUFNTnJ1R0RkUUxGVFo5b3VfaQ"
 }
