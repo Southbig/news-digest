@@ -11,14 +11,17 @@ function webhookFor(source: SourceConfig): { key: string; url: string } | undefi
   return url ? { key: "SLACK_WEBHOOK_URL", url } : undefined;
 }
 
-const WEBHOOK_PATTERN = /https:\/\/hooks\.slack\.com\/services\/[A-Za-z0-9_\/-]+/;
+// services/ 뒤의 세 덩어리까지 명시한다. 느슨하게 잡으면 URL 이 두 번 겹쳐 붙은 값에서
+// 앞쪽의 깨진 조각("...services/https")을 URL 로 착각한다.
+const WEBHOOK_PATTERN = /https:\/\/hooks\.slack\.com\/services\/[A-Za-z0-9_-]+\/[A-Za-z0-9_-]+\/[A-Za-z0-9_-]+/g;
 
 // 시크릿에 curl 예시나 따옴표가 섞여 들어오는 사고가 잦다. URL만 추출해 쓴다.
 // GitHub Actions는 시크릿 값을 ***로 마스킹하므로 값 자체는 절대 로그에 남기지 않고,
 // 실패 시 어느 키인지와 값의 "형태"만 알려 원인을 좁힌다.
 function assertWebhookUrl(key: string, raw: string): string {
+  // 겹쳐 붙은 값에서는 뒤쪽이 온전한 URL 이다
   const found = raw.match(WEBHOOK_PATTERN);
-  if (found) return found[0];
+  if (found) return found[found.length - 1];
 
   const shape = [
     `길이 ${raw.length}`,
