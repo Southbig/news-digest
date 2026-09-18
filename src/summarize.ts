@@ -1,7 +1,6 @@
 import type { FeedItem, SourceConfig } from "./types.js";
+import { generate, hasApiKey } from "./llm.js";
 
-// "-latest" 별칭은 항상 최신 Flash 모델을 가리킴 — 모델 단종에 영향받지 않음
-const MODEL = process.env.SUMMARY_MODEL ?? "gemini-flash-latest";
 const MAX_CONTENT_CHARS = 20_000;
 
 const SYSTEM_PROMPT = `너는 개발자를 위한 기술 소식 요약 봇이다. 릴리스 노트나 기술 뉴스 원문을 받아 Slack 메시지로 보낼 한국어 요약을 작성한다.
@@ -34,51 +33,17 @@ export async function summarize(
   source: SourceConfig,
   item: FeedItem,
 ): Promise<string> {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
+  if (!hasApiKey()) {
     console.warn(`[${source.name}] GEMINI_API_KEY가 없어 원문 발췌로 대체합니다`);
     return fallbackSummary(item);
   }
 
   const body = stripHtml(item.content).slice(0, MAX_CONTENT_CHARS);
   try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          "x-goog-api-key": apiKey,
-        },
-        body: JSON.stringify({
-          system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-          contents: [
-            {
-              role: "user",
-              parts: [
-                {
-                  text: `소스: ${source.name}\n제목: ${item.title}\n\n원문:\n${body || "(본문 없음)"}`,
-                },
-              ],
-            },
-          ],
-          generationConfig: {
-            maxOutputTokens: 8192,
-          },
-        }),
-      },
+    const text = await generate(
+      SYSTEM_PROMPT,
+      `소스: ${source.name}\n제목: ${item.title}\n\n원문:\n${body || "(본문 없음)"}`,
     );
-    if (!res.ok) {
-      throw new Error(`Gemini API 오류 (HTTP ${res.status}): ${await res.text()}`);
-    }
-
-    const data = (await res.json()) as {
-      candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
-    };
-    const text = (data.candidates?.[0]?.content?.parts ?? [])
-      .map((p) => p.text ?? "")
-      .join("")
-      .trim();
     return text || fallbackSummary(item);
   } catch (error) {
     console.warn(`[${source.name}] 요약 실패, 원문 발췌로 대체합니다:`, error);

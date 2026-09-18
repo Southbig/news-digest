@@ -1,0 +1,41 @@
+name: Weekly report
+
+on:
+  schedule:
+    - cron: "0 8 * * 5" # 금 08:00 UTC = 금 17:00 KST
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Slack 발송 없이 로그에만 출력"
+        type: boolean
+        default: true
+
+# 수집 워크플로와 같은 그룹 — archive/ 를 커밋하는 쪽과 동시에 돌지 않게 한다.
+concurrency:
+  group: check-updates
+  cancel-in-progress: false
+
+# 읽기만 한다. 리포트는 아카이브를 소비할 뿐 커밋하지 않는다.
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build weekly report
+        run: npm run weekly
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SLACK_WEBHOOK_WEEKLY: ${{ secrets.SLACK_WEBHOOK_WEEKLY }}
+          # schedule 실행에서는 inputs 가 비어 있어 실제 발송된다
+          DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
