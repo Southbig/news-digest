@@ -203,7 +203,7 @@ async function main() {
   }
   if (!hasApiKey()) throw new Error("GEMINI_API_KEY가 없어 주간 리포트를 만들 수 없습니다");
 
-  const report = appendFootnotes(await generate(SYSTEM_PROMPT, buildPrompt(items, now), 16384), items);
+  const report = appendFootnotes(await generate(SYSTEM_PROMPT, buildPrompt(items, now), { maxOutputTokens: 16384, patience: "long" }), items);
   const title = `주간 리포트 — ${now.toISOString().slice(0, 10)} (헤드라인 ${items.length}건)`;
 
   if (process.env.DRY_RUN) {
