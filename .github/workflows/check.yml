@@ -37,10 +37,12 @@ jobs:
 
       - name: Commit updated state
         run: |
-          if ! git diff --quiet state.json; then
+          git add state.json archive
+          if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add state.json
             git commit -m "chore: update state"
+            # 레포에 쓰는 워크플로가 둘 이상이므로 push 전에 원격 변경을 흡수한다
+            git pull --rebase
             git push
           fi

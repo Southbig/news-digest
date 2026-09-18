@@ -3,6 +3,7 @@ import { loadState, saveState } from "./state.js";
 import { feedUrl, fetchFeed } from "./feed.js";
 import { summarize } from "./summarize.js";
 import { notify } from "./notify.js";
+import { appendItems } from "./archive.js";
 
 // 한 소스당 한 번에 보내는 최대 알림 수 (피드 롤오버/장기 미실행 시 도배 방지)
 const MAX_NEW_PER_SOURCE = 3;
@@ -15,6 +16,8 @@ async function main() {
   // 실행 단위로만 유지한다(디스크 저장 없음): 교차 중복은 한 실행 안에서 발생하고,
   // 다음 실행에서는 각 소스의 state 기준점이 이미 그 기사를 지나가 있다.
   const sentIds = new Set<string>();
+  // 주간 리포트용 누적 — 발송 여부와 무관하게 수집한 헤드라인을 전부 쌓는다
+  const archived = { added: 0, dateEstimated: 0 };
 
   for (const source of sources) {
     try {
@@ -23,6 +26,10 @@ async function main() {
         console.log(`[${source.name}] 피드에 항목이 없습니다`);
         continue;
       }
+
+      const stats = appendItems(source, items);
+      archived.added += stats.added;
+      archived.dateEstimated += stats.dateEstimated;
 
       const lastSeen = state[source.name];
       if (!lastSeen) {
@@ -65,6 +72,8 @@ async function main() {
   }
 
   saveState(state);
+  console.log(`아카이브 적재 ${archived.added}건` +
+    (archived.dateEstimated ? ` (발행일 파싱 실패 ${archived.dateEstimated}건 — 수집 시각으로 대체)` : ""));
   if (failed) process.exitCode = 1;
 }
 
