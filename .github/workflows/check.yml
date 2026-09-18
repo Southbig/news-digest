@@ -32,6 +32,8 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_AI_NEWS: ${{ secrets.SLACK_WEBHOOK_AI_NEWS }}
           SLACK_WEBHOOK_STOCKS: ${{ secrets.SLACK_WEBHOOK_STOCKS }}
+          SLACK_WEBHOOK_INDUSTRIES: ${{ secrets.SLACK_WEBHOOK_INDUSTRIES }}
+          SLACK_WEBHOOK_COMMODITIES: ${{ secrets.SLACK_WEBHOOK_COMMODITIES }}
 
       - name: Commit updated state
         run: |

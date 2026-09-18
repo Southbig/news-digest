@@ -1,0 +1,225 @@
+# 산업군 동향 — Google News 검색 RSS
+#
+# channel: industries → SLACK_WEBHOOK_INDUSTRIES 웹훅으로 전송.
+#   시크릿이 없으면 SLACK_WEBHOOK_URL(#tech_news)로 폴백되므로, 시크릿부터 등록할 것.
+#
+# name 은 stock-insight-report 의 KR 업종 라벨(var/cache/kr_industry.json, 62개)을
+# 뉴스 단위로 묶은 것이다. 각 항목의 주석에 대응 업종 라벨을 적어두었다 —
+# 나중에 리포트의 업종별 점수·수익률과 조인할 때 매핑표 대신 이 주석을 쓴다.
+#
+# maxPerRun: 1 — 산업 뉴스는 기사가 잦다. 소스 34개, 실행 1회당 최대 34건(모든 피드에 새 기사가 있을 때).
+#   실행 5~6회/일 기준 이론상 상한 ~200건/일 — 실제로는 새 기사가 있는 소스만 발송된다.
+#   너무 많으면 필요 없는 블록을 주석 처리하면 된다 (state.json 은 건드릴 필요 없음).
+
+sources:
+  # ── IT·전자 ──────────────────────────────────────
+  - name: 반도체
+    type: rss # 업종: 반도체와반도체장비
+    url: https://news.google.com/rss/search?q=반도체+업황+OR+반도체+수요+OR+파운드리&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 디스플레이
+    type: rss # 업종: 디스플레이패널 · 디스플레이장비및부품
+    url: https://news.google.com/rss/search?q=디스플레이+OLED+업황+OR+패널+가격&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 전자부품·전기장비
+    type: rss # 업종: 전자장비와기기 · 전자제품 · 전기장비 · 전기제품
+    url: https://news.google.com/rss/search?q=전자부품+업황+OR+전력기기+수주&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 2차전지
+    type: rss # 업종: 전기장비·화학에 걸침 (테마)
+    url: https://news.google.com/rss/search?q=2차전지+OR+배터리+업황+OR+전기차+배터리+수주&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: IT서비스·SI
+    type: rss # 업종: IT서비스
+    url: https://news.google.com/rss/search?q=IT서비스+OR+시스템통합+수주+OR+클라우드+전환&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  # ── 중공업·소재 ──────────────────────────────────
+  - name: 자동차
+    type: rss # 업종: 자동차 · 자동차부품
+    url: https://news.google.com/rss/search?q=자동차+판매+OR+완성차+실적+OR+자동차부품&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 조선
+    type: rss # 업종: 조선
+    url: https://news.google.com/rss/search?q=조선+수주+OR+선가+OR+조선업&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 기계·로봇
+    type: rss # 업종: 기계
+    url: https://news.google.com/rss/search?q=산업용+로봇+OR+공작기계+OR+건설기계+수주&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 건설
+    type: rss # 업종: 건설
+    url: https://news.google.com/rss/search?q=건설사+수주+OR+분양+OR+건설업+전망&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 건축자재·시멘트
+    type: rss # 업종: 건축자재
+    url: https://news.google.com/rss/search?q=시멘트+가격+OR+건자재+업황&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 철강·비철금속
+    type: rss # 업종: 철강 · 비철금속
+    url: https://news.google.com/rss/search?q=철강+가격+OR+철강업+OR+비철금속+시세&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 화학
+    type: rss # 업종: 화학
+    url: https://news.google.com/rss/search?q=석유화학+업황+OR+화학+스프레드+OR+정밀화학&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  # ── 에너지·유틸리티 ──────────────────────────────
+  - name: 석유·가스
+    type: rss # 업종: 석유와가스 · 에너지장비및서비스
+    url: https://news.google.com/rss/search?q=정유사+정제마진+OR+석유화학+가동률+OR+LNG+도입&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 전력·유틸리티
+    type: rss # 업종: 전기유틸리티 · 가스유틸리티 · 복합유틸리티
+    url: https://news.google.com/rss/search?q=전력요금+OR+전력망+투자+OR+데이터센터+전력&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 원전·SMR
+    type: rss # 테마 (전기유틸리티·기계·건설에 걸침)
+    url: https://news.google.com/rss/search?q=원전+수주+OR+SMR+OR+원자력+발전&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 우주항공·방위산업
+    type: rss # 업종: 우주항공과국방
+    url: https://news.google.com/rss/search?q=방산+수출+OR+방위산업+수주+OR+우주항공&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  # ── 헬스케어 ─────────────────────────────────────
+  - name: 제약
+    type: rss # 업종: 제약
+    url: https://news.google.com/rss/search?q=제약사+신약+OR+의약품+판매+OR+제약업계&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 바이오
+    type: rss # 업종: 생물공학 · 생명과학도구및서비스
+    url: https://news.google.com/rss/search?q=바이오+임상+OR+바이오시밀러+OR+위탁생산+CDMO&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 의료기기·헬스케어서비스
+    type: rss # 업종: 건강관리장비와용품 · 건강관리업체및서비스 · 건강관리기술
+    url: https://news.google.com/rss/search?q=의료기기+OR+디지털+헬스케어+OR+병원+수가&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  # ── 인터넷·미디어·통신 ───────────────────────────
+  - name: 인터넷·플랫폼
+    type: rss # 업종: 양방향미디어와서비스 · 인터넷과카탈로그소매
+    url: https://news.google.com/rss/search?q=네이버+카카오+실적+OR+이커머스+거래액+OR+플랫폼+규제&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 게임
+    type: rss # 업종: 게임엔터테인먼트
+    url: https://news.google.com/rss/search?q=게임사+신작+OR+게임+매출+OR+게임업계&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 미디어·엔터·광고
+    type: rss # 업종: 방송과엔터테인먼트 · 광고
+    url: https://news.google.com/rss/search?q=엔터테인먼트+실적+OR+콘텐츠+제작+OR+광고+시장&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 통신
+    type: rss # 업종: 무선통신서비스 · 다각화된통신서비스 · 통신장비 · 핸드셋
+    url: https://news.google.com/rss/search?q=통신사+요금제+OR+5G+투자+OR+통신장비+수주&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  # ── 금융 ─────────────────────────────────────────
+  - name: 은행·카드
+    type: rss # 업종: 은행 · 카드
+    url: https://news.google.com/rss/search?q=은행+순이자마진+OR+대출+규제+OR+카드사+실적&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 증권
+    type: rss # 업종: 증권 · 창업투자
+    url: https://news.google.com/rss/search?q=증권사+실적+OR+거래대금+OR+IPO+시장&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 보험
+    type: rss # 업종: 생명보험 · 손해보험
+    url: https://news.google.com/rss/search?q=보험사+실적+OR+손해율+OR+보험+제도&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 부동산·리츠
+    type: rss # 업종: 부동산
+    url: https://news.google.com/rss/search?q=부동산+시장+OR+리츠+OR+상업용+부동산&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  # ── 소비재·유통 ──────────────────────────────────
+  - name: 유통·소매
+    type: rss # 업종: 백화점과일반상점 · 무역회사와판매업체 · 상업서비스와공급품
+    url: https://news.google.com/rss/search?q=백화점+매출+OR+대형마트+OR+유통업계&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 식음료
+    type: rss # 업종: 식품 · 음료 · 담배
+    url: https://news.google.com/rss/search?q=식품업계+가격+OR+음식료+실적+OR+식품+수출&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 화장품
+    type: rss # 업종: 화장품
+    url: https://news.google.com/rss/search?q=화장품+수출+OR+K뷰티+OR+화장품업계&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 섬유·의류
+    type: rss # 업종: 섬유,의류,신발,호화품
+    url: https://news.google.com/rss/search?q=패션업계+실적+OR+의류+소비+OR+명품+시장&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 생활용품·가구
+    type: rss # 업종: 가구 · 가정용기기와용품
+    url: https://news.google.com/rss/search?q=가구업계+OR+가전+판매+OR+생활용품+시장&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  # ── 운송 ─────────────────────────────────────────
+  - name: 운송·물류
+    type: rss # 업종: 해운사 · 도로와철도운송 · 운송인프라 · 항공화물운송과물류
+    url: https://news.google.com/rss/search?q=해운+운임+OR+물류업계+OR+택배+단가&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1
+
+  - name: 항공·여행
+    type: rss # 업종: 항공사 · 호텔,레스토랑,레저
+    url: https://news.google.com/rss/search?q=항공사+여객+OR+여행수요+OR+호텔+레저+실적&hl=ko&gl=KR&ceid=KR:ko
+    channel: industries
+    maxPerRun: 1

@@ -1,0 +1,75 @@
+# 원자재 시세 — Google News 검색 RSS
+#
+# 산업군(industries.yml)이 "업종이 어떻게 돌아가나"라면, 여기는 "투입 가격이 어디로 가나"다.
+# 원자재는 업종 실적의 선행 지표라 따로 본다 (예: 구리·전선 → 전력기기, 철광석 → 철강 마진).
+#
+# channel: commodities → SLACK_WEBHOOK_COMMODITIES 웹훅(#commodity_news)으로 전송.
+#   시크릿이 없으면 SLACK_WEBHOOK_URL(#tech_news)로 폴백되므로, 시크릿부터 등록할 것.
+#
+# maxPerRun: 1 — 시세 기사는 매일 반복성이 강하다.
+
+sources:
+  # ── 귀금속 ───────────────────────────────────────
+  - name: 금·은 시세
+    type: rss
+    url: https://news.google.com/rss/search?q=금값+OR+금+시세+OR+은+가격+국제&hl=ko&gl=KR&ceid=KR:ko
+    channel: commodities
+    maxPerRun: 1
+
+  # ── 산업금속 ─────────────────────────────────────
+  - name: 구리 시세
+    type: rss # 전력·전선·건설 수요의 선행 지표
+    url: https://news.google.com/rss/search?q=구리+가격+OR+전기동+시세+OR+구리+수요&hl=ko&gl=KR&ceid=KR:ko
+    channel: commodities
+    maxPerRun: 1
+
+  - name: 알루미늄·아연
+    type: rss # 업종: 비철금속
+    url: https://news.google.com/rss/search?q=알루미늄+가격+OR+아연+시세+OR+비철금속+LME&hl=ko&gl=KR&ceid=KR:ko
+    channel: commodities
+    maxPerRun: 1
+
+  - name: 니켈·리튬 (배터리 금속)
+    type: rss # 2차전지 원가의 핵심 변수
+    url: https://news.google.com/rss/search?q=리튬+가격+OR+니켈+시세+OR+코발트+가격&hl=ko&gl=KR&ceid=KR:ko
+    channel: commodities
+    maxPerRun: 1
+
+  - name: 희토류·영구자석
+    type: rss # 수출 통제 이슈가 잦아 별도 추적
+    url: https://news.google.com/rss/search?q=희토류+OR+영구자석+수출+통제&hl=ko&gl=KR&ceid=KR:ko
+    channel: commodities
+    maxPerRun: 1
+
+  - name: 우라늄
+    type: rss # 원전·SMR 테마의 연료 사이드
+    url: https://news.google.com/rss/search?q=우라늄+가격+OR+우라늄+농축+OR+핵연료&hl=ko&gl=KR&ceid=KR:ko
+    channel: commodities
+    maxPerRun: 1
+
+  # ── 에너지 ───────────────────────────────────────
+  - name: 원유 (WTI·브렌트)
+    type: rss
+    url: https://news.google.com/rss/search?q=국제유가+OR+WTI+OR+브렌트유+OPEC&hl=ko&gl=KR&ceid=KR:ko
+    channel: commodities
+    maxPerRun: 1
+
+  - name: 천연가스·LNG
+    type: rss
+    url: https://news.google.com/rss/search?q=천연가스+가격+OR+LNG+스팟+가격&hl=ko&gl=KR&ceid=KR:ko
+    channel: commodities
+    maxPerRun: 1
+
+  # ── 철강 원료 ────────────────────────────────────
+  - name: 철광석·원료탄
+    type: rss # 철강 마진의 투입 사이드 (industries.yml 의 철강·비철금속은 제품 가격)
+    url: https://news.google.com/rss/search?q=철광석+가격+OR+원료탄+OR+제철+원가&hl=ko&gl=KR&ceid=KR:ko
+    channel: commodities
+    maxPerRun: 1
+
+  # ── 농산물 ───────────────────────────────────────
+  - name: 곡물 (밀·옥수수·대두)
+    type: rss # 식음료 원가의 선행 지표
+    url: https://news.google.com/rss/search?q=국제+곡물+가격+OR+밀+선물+OR+대두+옥수수+시세&hl=ko&gl=KR&ceid=KR:ko
+    channel: commodities
+    maxPerRun: 1
