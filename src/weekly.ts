@@ -40,7 +40,7 @@ Slack 메시지로 보낼 한국어 리포트를 작성한다.
   5. *다음 주 체크포인트* — 확인해야 할 지표·일정 3개 내외.
 
 규칙:
-- 모든 주장 끝에 근거 헤드라인 번호를 [12] 또는 [3][17] 형태로 붙인다. 번호 없는 주장은 쓰지 않는다.
+- 모든 주장 끝에 근거 헤드라인 번호를 [12] 또는 [3][17] 형태로 붙인다. 번호 없는 주장은 쓰지 않는다.\n- 한 주장에 번호는 최대 3개까지만 붙인다. 링크는 리포트 끝에 자동으로 붙으니 본문에 URL 을 쓰지 않는다.
 - 헤드라인에 없는 사실을 지어내지 않는다. 수치는 헤드라인에 있는 것만 인용한다.
 - 개별 종목의 매수·매도를 추천하지 않는다. 종목명은 헤드라인에 나온 사실을 전할 때만 언급한다.
 - 근거가 얇은 판단은 "헤드라인 N건뿐이라 확신하기 이르다"처럼 한계를 밝힌다.
@@ -123,27 +123,47 @@ function buildPrompt(items: Numbered[], now: Date): string {
   return lines.join("\n");
 }
 
-/** LLM 이 쓴 [12] 를 실제 기사 링크로 바꾼다 — 링크를 프롬프트에 넣지 않고도 근거가 살아있게 한다. */
-function linkCitations(text: string, items: Numbered[]): string {
+/**
+ * 본문의 [12] 는 그대로 두고, 인용된 번호만 맨 뒤 근거 목록에 링크로 모은다.
+ * Google News URL 이 개당 300자라 인라인에 넣으면 한 줄이 Slack 블록 한도를 혼자 넘긴다.
+ */
+function appendFootnotes(text: string, items: Numbered[]): string {
   const byNumber = new Map(items.map((i) => [i.n, i]));
-  return text.replace(/\[(\d+)\]/g, (whole, digits: string) => {
-    const item = byNumber.get(Number(digits));
-    return item ? `<${item.l}|[${digits}]>` : whole;
+  const cited: number[] = [];
+  for (const match of text.matchAll(/\[(\d+)\]/g)) {
+    const n = Number(match[1]);
+    if (byNumber.has(n) && !cited.includes(n)) cited.push(n);
+  }
+  if (!cited.length) return text;
+
+  const lines = cited.sort((a, b) => a - b).map((n) => {
+    const item = byNumber.get(n)!;
+    const title = item.t.length > 60 ? item.t.slice(0, 59) + "…" : item.t;
+    return `[${n}] <${item.l}|${title}>`;
   });
+  return `${text}\n\n*근거 (${cited.length}건)*\n${lines.join("\n")}`;
 }
 
-/** Slack section 블록 한도에 맞춰 줄 단위로 자른다. */
+/** Slack section 블록 한도에 맞춰 자른다. 한 줄이 한도를 넘으면 그 줄도 쪼갠다. */
 function chunk(text: string): string[] {
   const out: string[] = [];
   let buf = "";
+  const flush = () => {
+    if (buf) out.push(buf);
+    buf = "";
+  };
+
   for (const line of text.split("\n")) {
-    if (buf.length + line.length + 1 > CHUNK_CHARS) {
-      out.push(buf);
-      buf = "";
+    let rest = line;
+    while (rest.length > CHUNK_CHARS) {
+      flush();
+      out.push(rest.slice(0, CHUNK_CHARS));
+      rest = rest.slice(CHUNK_CHARS);
     }
-    buf += (buf ? "\n" : "") + line;
+    if (buf.length + rest.length + 1 > CHUNK_CHARS) flush();
+    buf += (buf ? "\n" : "") + rest;
   }
-  if (buf) out.push(buf);
+  flush();
   return out;
 }
 
@@ -183,7 +203,7 @@ async function main() {
   }
   if (!hasApiKey()) throw new Error("GEMINI_API_KEY가 없어 주간 리포트를 만들 수 없습니다");
 
-  const report = linkCitations(await generate(SYSTEM_PROMPT, buildPrompt(items, now), 16384), items);
+  const report = appendFootnotes(await generate(SYSTEM_PROMPT, buildPrompt(items, now), 16384), items);
   const title = `주간 리포트 — ${now.toISOString().slice(0, 10)} (헤드라인 ${items.length}건)`;
 
   if (process.env.DRY_RUN) {
