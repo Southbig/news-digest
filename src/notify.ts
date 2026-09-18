@@ -11,17 +11,26 @@ function webhookFor(source: SourceConfig): { key: string; url: string } | undefi
   return url ? { key: "SLACK_WEBHOOK_URL", url } : undefined;
 }
 
-// GitHub Actions는 시크릿 값을 ***로 마스킹하므로, 값이 깨졌을 때 fetch가 뱉는
-// "Failed to parse URL from ***"로는 어느 시크릿이 문제인지 알 수 없다. 키 이름으로 알린다.
-function assertWebhookUrl(key: string, url: string): string {
-  const trimmed = url.trim();
-  if (!trimmed.startsWith("https://hooks.slack.com/")) {
-    throw new Error(
-      `${key} 값이 Slack Incoming Webhook URL이 아닙니다. ` +
-        `https://hooks.slack.com/services/... 형태여야 합니다 (curl 예시나 따옴표가 섞이지 않았는지 확인).`,
-    );
-  }
-  return trimmed;
+const WEBHOOK_PATTERN = /https:\/\/hooks\.slack\.com\/services\/[A-Za-z0-9_\/-]+/;
+
+// 시크릿에 curl 예시나 따옴표가 섞여 들어오는 사고가 잦다. URL만 추출해 쓴다.
+// GitHub Actions는 시크릿 값을 ***로 마스킹하므로 값 자체는 절대 로그에 남기지 않고,
+// 실패 시 어느 키인지와 값의 "형태"만 알려 원인을 좁힌다.
+function assertWebhookUrl(key: string, raw: string): string {
+  const found = raw.match(WEBHOOK_PATTERN);
+  if (found) return found[0];
+
+  const shape = [
+    `길이 ${raw.length}`,
+    `공백 ${/\s/.test(raw) ? "있음" : "없음"}`,
+    `줄바꿈 ${raw.includes("\n") ? "있음" : "없음"}`,
+    `따옴표 ${/["'`]/.test(raw) ? "있음" : "없음"}`,
+    `시작 ${raw.trimStart().slice(0, 8).replace(/[^\x20-\x7e]/g, "?") || "(빈 값)"}`,
+  ].join(" · ");
+  throw new Error(
+    `${key} 안에서 Slack Incoming Webhook URL을 찾지 못했습니다. ` +
+      `https://hooks.slack.com/services/... 형태가 포함돼야 합니다. [값 형태: ${shape}]`,
+  );
 }
 
 function truncate(s: string, max: number): string {
