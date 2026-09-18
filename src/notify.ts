@@ -1,12 +1,27 @@
 import type { FeedItem, SourceConfig } from "./types.js";
 
 // channel: ai-news → SLACK_WEBHOOK_AI_NEWS, 없으면 SLACK_WEBHOOK_URL로 폴백
-function webhookFor(source: SourceConfig): string | undefined {
+function webhookFor(source: SourceConfig): { key: string; url: string } | undefined {
   if (source.channel) {
     const key = `SLACK_WEBHOOK_${source.channel.toUpperCase().replace(/[^A-Z0-9]/g, "_")}`;
-    if (process.env[key]) return process.env[key];
+    const url = process.env[key];
+    if (url) return { key, url };
   }
-  return process.env.SLACK_WEBHOOK_URL;
+  const url = process.env.SLACK_WEBHOOK_URL;
+  return url ? { key: "SLACK_WEBHOOK_URL", url } : undefined;
+}
+
+// GitHub Actions는 시크릿 값을 ***로 마스킹하므로, 값이 깨졌을 때 fetch가 뱉는
+// "Failed to parse URL from ***"로는 어느 시크릿이 문제인지 알 수 없다. 키 이름으로 알린다.
+function assertWebhookUrl(key: string, url: string): string {
+  const trimmed = url.trim();
+  if (!trimmed.startsWith("https://hooks.slack.com/")) {
+    throw new Error(
+      `${key} 값이 Slack Incoming Webhook URL이 아닙니다. ` +
+        `https://hooks.slack.com/services/... 형태여야 합니다 (curl 예시나 따옴표가 섞이지 않았는지 확인).`,
+    );
+  }
+  return trimmed;
 }
 
 function truncate(s: string, max: number): string {
@@ -25,8 +40,9 @@ export async function notify(
     return;
   }
 
-  const webhook = webhookFor(source);
-  if (!webhook) throw new Error("SLACK_WEBHOOK_URL이 설정되지 않았습니다");
+  const target = webhookFor(source);
+  if (!target) throw new Error("SLACK_WEBHOOK_URL이 설정되지 않았습니다");
+  const webhook = assertWebhookUrl(target.key, target.url);
 
   const payload = {
     text: title, // 푸시 알림 미리보기용 폴백 텍스트

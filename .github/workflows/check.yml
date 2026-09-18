@@ -35,7 +35,10 @@ jobs:
           SLACK_WEBHOOK_INDUSTRIES: ${{ secrets.SLACK_WEBHOOK_INDUSTRIES }}
           SLACK_WEBHOOK_COMMODITIES: ${{ secrets.SLACK_WEBHOOK_COMMODITIES }}
 
+      # 일부 소스가 실패해도 이미 처리한 항목의 기준점과 아카이브는 남겨야 한다.
+      # 그러지 않으면 실패한 실행의 수집 결과가 통째로 버려진다.
       - name: Commit updated state
+        if: always()
         run: |
           git add state.json archive
           if ! git diff --cached --quiet; then
