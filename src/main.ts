@@ -11,6 +11,10 @@ async function main() {
   const sources = loadSources();
   const state = loadState();
   let failed = false;
+  // 이번 실행에서 이미 보낸 항목 id — 같은 기사가 여러 피드의 최신 1위로 동시에 걸릴 때만 쓰인다.
+  // 실행 단위로만 유지한다(디스크 저장 없음): 교차 중복은 한 실행 안에서 발생하고,
+  // 다음 실행에서는 각 소스의 state 기준점이 이미 그 기사를 지나가 있다.
+  const sentIds = new Set<string>();
 
   for (const source of sources) {
     try {
@@ -41,9 +45,17 @@ async function main() {
 
       // 오래된 것부터 순서대로 전송; 전송에 성공한 지점까지만 state에 기록
       for (const item of newItems.reverse()) {
+        // 건너뛸 때도 기준점은 전진시킨다 — 그러지 않으면 이 항목이 영원히 "최신 미처리"로 남아
+        // 해당 소스가 조용히 멈춘다.
+        if (sentIds.has(item.id)) {
+          console.log(`[${source.name}] 중복 건너뜀 (다른 소스가 이미 발송): ${item.title}`);
+          state[source.name] = item.id;
+          continue;
+        }
         console.log(`[${source.name}] 새 소식: ${item.title}`);
         const summary = await summarize(source, item);
         await notify(source, item, summary);
+        sentIds.add(item.id);
         state[source.name] = item.id;
       }
     } catch (error) {
